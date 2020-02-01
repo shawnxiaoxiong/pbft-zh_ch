@@ -28,7 +28,7 @@ Miguel Castro and Barbara Liskov
 
 恶意攻击和软件错误越来越普遍。行业和政府对在线信息服务的日益依赖增加了对恶意攻击的吸引力，并且使攻击得手的后果愈加严重。另外，由于软件规模和复杂性的提升，软件错误的数量也在不断增加。由于恶意攻击和软件错误都可能导致故障节点表现出拜占庭（即任意）行为，因此，拜占庭容错算法变得越来越重要。
 
-本文提出了一种新的实用的状态机复制算法[17，34]，可以容忍拜占庭错误。该算法同时满足活性（以下引用原文称为Liveness）和安全性（以下引用原文称为Safty），支持n个副本（以下引用原文称为replica）中最多 $[\frac{n-1}{3}]$个同时出现恶化的容错机制。这意味着客户端（以下引用原文称为client）最终会收到对其请求的响应，并且根据线性一致性要求这些响应都是正确的[14，4]。该算法可在 Internet 等异步系统中使用，并且结合了重要的优化策略，可以使其高效运行。
+本文提出了一种新的实用的状态机复制算法[17，34]，可以容忍拜占庭错误。该算法同时满足活性（以下引用原文称为Liveness）和安全性（以下引用原文称为Safty），支持n个副本（以下引用原文称为replica）中最多$$[\frac{n-1}{3}]$$个同时出现恶化的容错机制。这意味着客户端（以下引用原文称为client）最终会收到对其请求的响应，并且根据线性一致性要求这些响应都是正确的[14，4]。该算法可在 Internet 等异步系统中使用，并且结合了重要的优化策略，可以使其高效运行。
 
 > 译者注：原文是*faulty*，直译为故障，其核心是想表达可以表现出任意行为。为了避免与正常节点偶尔的网络延迟等问题造成的错误或失败发生混淆，本文统一翻译为恶化
 
@@ -154,7 +154,7 @@ commit阶段可确保以下不变式：对于某些非恶化replica i ，如果c
 
 图 1 显示了该算法在没有primary故障的正常情况下的操作。replica 0 为主副本，replica 3 为恶化副本，而 C 为client。
 
-![[https://raw.githubusercontent.com/shawnxiaoxiong/pbft-zh_ch/master/images/%E5%9B%BE%E7%89%871.png](https://raw.githubusercontent.com/shawnxiaoxiong/pbft-zh_ch/master/images/图片1.png)]()
+![avatar](https://raw.githubusercontent.com/shawnxiaoxiong/pbft-zh_ch/master/images/图片1.png)
 
 图1 常规操作
 
