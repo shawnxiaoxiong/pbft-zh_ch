@@ -1,18 +1,22 @@
-<p>
-  <center>发表在 1999 年 2 月于美国新奥尔良举行的第三届操作系统设计与实现研讨会上</center>
-</p>
+发表在 *1999* 年 *2* 月于美国新奥尔良举行的第三届操作系统设计与实现研讨会上
 
 
 
 
 
-<center><h1>实用的拜占庭容错</h1></center>
+# 实用的拜占庭容错
 
-<center>Miguel Castro and Barbara Liskov</center>
-<center>Laboratory for Computer Science,</center>
-<center>Massachusetts Institute of Technology,</center>
-<center>{castro,liskov}@lcs.mit.edu</center>
-<center>译者&校对：熊潇, <a href="mailto:shawnxiong@qq.com">shawnxiong@qq.com</a></center>
+
+
+Miguel Castro and Barbara Liskov
+
+*Laboratory for Computer Science,*
+
+*Massachusetts Institute of Technology,*
+
+*{castro,liskov}@lcs.mit.edu*
+
+**译者&校对：熊潇, [shawnxiong@qq.com](mailto:shawnxiong@qq.com)**
 
 
 
@@ -152,9 +156,7 @@ commit阶段可确保以下不变式：对于某些非恶化replica i ，如果c
 
 ![常规操作](images/图片1.png)
 
-<p>
-  <center>图1 常规操作</center>
-</p>
+图1 常规操作
 
 ### 4.3 **垃圾回收** 
 
