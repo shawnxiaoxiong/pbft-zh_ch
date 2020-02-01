@@ -132,7 +132,7 @@ backup接受一个pre-prepare消息的前提条件：
 
 最后一个条件是防止恶化primary通过选择一个很大的序号来耗尽请求序号空间的问题。我们将在4.3 节中讨论 H 和 h 如何解决这个问题。
 
-如果backup i 接受了$<<{PRE-PREPARE,v,n,d}>_{\sigma_p},m>$消息，它将通过将$<{PREPARE,v,n,d,i}>_{\sigma_i}$消息广播给所有其他replica而后进入prepare阶段，并将这两个消息追加写入到其日志中。否则，它什么都不做。
+如果backup i 接受了$<<{PRE-PREPARE,v,n,d}>_ {\sigma_p},m>$消息，它将通过将$<{PREPARE,v,n,d,i}>_{\sigma_i}$消息广播给所有其他replica而后进入prepare阶段，并将这两个消息追加写入到其日志中。否则，它什么都不做。
 
 replica（包括primary）接受所有有效的prepare消息，并将它们添加到其日志中，前提是其签名正确，其视图编号等于该replica的当前视图编号，并且其请求序号在 h 和 H 之间。 
 
@@ -182,7 +182,7 @@ commit阶段可确保以下不变式：对于某些非恶化replica i ，如果c
 
 1. primary确定 V 中最新的稳定检查点的请求序号min-s和 V 中所有prepare消息里请求序号的最大值max-s。 
 
-2. primary为介于min-s和max-s之间的每个序号 n 以视图 v+1 分别创建新的pre-prepare消息。有两种情况：（1）在 V 中的某些view-change消息的 P 集合中，已经至少存在一个请求序号 n 了，或者（2）不存在这样的情况。在第一种情况下，primary创建一个新消息$<{PRE-PREPARE,v+1,n,d}>_{\sigma_p}$，其中 d 是 V 中请求序号为 n ，且具有最高视图编号的pre-prepare消息的请求摘要。在第二种情况下，它将创建一个新的pre-prepare消息$<{PRE-PREPARE,v+1,n,d^{null}}>_{\sigma_p}$，其中$d^{null}$是一个特殊的空请求的请求摘要；空请求像其他请求一样遵从协议，但是它执行的是空操作。（Paxos [18]使用了类似的技术来补齐。） 
+2. primary为介于min-s和max-s之间的每个序号 n 以视图 v+1 分别创建新的pre-prepare消息。有两种情况：（1）在 V 中的某些view-change消息的 P 集合中，已经至少存在一个请求序号 n 了，或者（2）不存在这样的情况。在第一种情况下，primary创建一个新消息$<{PRE-PREPARE,v+1,n,d}>_ {\sigma_p}$，其中 d 是 V 中请求序号为 n ，且具有最高视图编号的pre-prepare消息的请求摘要。在第二种情况下，它将创建一个新的pre-prepare消息$<{PRE-PREPARE,v+1,n,d^{null}}>_{\sigma_p}$，其中$d^{null}$是一个特殊的空请求的请求摘要；空请求像其他请求一样遵从协议，但是它执行的是空操作。（Paxos [18]使用了类似的技术来补齐。） 
 
 接下来，primary将 O 中的消息追加写入到其日志中。如果min-s大于其最新的稳定检查点的请求序号，则primary还将在其日志中插入请求序号为min-s的检查点的稳定性证明，并如第4.3节中所述清理日志信息。然后它进入视图 v+1 ：此时，它可以接受视图 v+1 的消息。
 
