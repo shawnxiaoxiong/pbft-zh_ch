@@ -8,11 +8,12 @@
 
 <center><h1>实用的拜占庭容错</h1></center>
 
-<p><center>Miguel Castro and Barbara Liskov</center></p>
-<p><center>Laboratory for Computer Science,</center></p>
-<p><center>Massachusetts Institute of Technology,</center></p>
-<p><center>{castro,liskov}@lcs.mit.edu</center><p></p>
-<p><center>译者&校对：熊潇, <a href="mailto:shawnxiong@qq.com">shawnxiong@qq.com</a></center></p>
+<center>Miguel Castro and Barbara Liskov</center>
+<center>Laboratory for Computer Science,</center>
+<center>Massachusetts Institute of Technology,</center>
+<center>{castro,liskov}@lcs.mit.edu</center>
+<center>译者&校对：熊潇, <a href="mailto:shawnxiong@qq.com">shawnxiong@qq.com</a></center>
+
 
 
 ## 摘要
