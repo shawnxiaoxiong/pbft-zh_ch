@@ -154,7 +154,7 @@ commit阶段可确保以下不变式：对于某些非恶化replica i ，如果c
 
 图 1 显示了该算法在没有primary故障的正常情况下的操作。replica 0 为主副本，replica 3 为恶化副本，而 C 为client。
 
-![pastedGraphic.png](blob:file:///67f5f861-1b9f-4b55-b440-ae50c1155e8c)
+
 
 图1 常规操作
 
